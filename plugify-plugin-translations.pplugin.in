@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/untrustedmodders/plugify/refs/heads/main/schemas/plugin.schema.json",
+  "version": "${TRANSLATIONS_VERSION}",
+  "name": "${TRANSLATIONS_PACKAGE}",
+  "description": "A plugin that provides a system to read and write translations files.",
+  "author": "untrustedmodders",
+  "website": "https://github.com/untrustedmodders/",
+  "license": "MIT",
+  "entry": "bin/plugify-plugin-translations",
+  "platforms": [],
+  "language": "cpp",
+  "dependencies": [],
+  "methods": [
+  ]
+}

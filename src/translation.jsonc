@@ -1,0 +1,10 @@
+{
+  "GameEnd": {
+    "en": "Game ended.",
+    "ru": "Игра закончена"
+  },
+  "ReadyForGame": {
+    "en": "{1} | Player {2} ready",
+    "ru": "{1} | Игрок {2} готов к матчу"
+  }
+}

@@ -1,0 +1,6 @@
+{
+    global:
+        Plugify_*;
+
+    local: *;
+};
