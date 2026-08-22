@@ -9,7 +9,136 @@
   "entry": "bin/plugify-plugin-translations",
   "platforms": [],
   "language": "cpp",
-  "dependencies": [],
+  "dependencies": [
+    {
+      "name": "configs",
+      "constraints": ">=2.0.0"
+    }
+  ],
   "methods": [
+    {
+      "name": "LoadTranslation",
+      "group": "Translations",
+      "description": "Loads (and merges) one or more translation files.",
+      "funcName": "LoadTranslation",
+      "paramTypes": [
+        {
+          "name": "paths",
+          "type": "string[]",
+          "ref": false,
+          "description": "Paths to the translation files. Relative paths are resolved against the configs directory."
+        }
+      ],
+      "retType": {
+        "type": "string",
+        "description": "Empty string on success, or an error message on failure."
+      }
+    },
+    {
+      "name": "ReloadTransalations",
+      "group": "Translations",
+      "description": "Clears and reloads every translation file previously passed to LoadTranslation.",
+      "funcName": "ReloadTransalations",
+      "paramTypes": [],
+      "retType": {
+        "type": "void"
+      }
+    },
+    {
+      "name": "HasTranslation",
+      "group": "Translations",
+      "description": "Checks whether a translation key exists for any language.",
+      "funcName": "HasTranslation",
+      "paramTypes": [
+        {
+          "name": "key",
+          "type": "string",
+          "ref": false,
+          "description": "The translation key to check."
+        }
+      ],
+      "retType": {
+        "type": "bool",
+        "description": "True if the key exists, false otherwise."
+      }
+    },
+    {
+      "name": "HasTranslatedForLanguage",
+      "group": "Translations",
+      "description": "Checks whether a translation key has a value for a specific language.",
+      "funcName": "HasTranslatedForLanguage",
+      "paramTypes": [
+        {
+          "name": "key",
+          "type": "string",
+          "ref": false,
+          "description": "The translation key to check."
+        },
+        {
+          "name": "lang",
+          "type": "string",
+          "ref": false,
+          "description": "The language code to check."
+        }
+      ],
+      "retType": {
+        "type": "bool",
+        "description": "True if the key is translated for the language, false otherwise."
+      }
+    },
+    {
+      "name": "Translate",
+      "group": "Translations",
+      "description": "Translates a key into the specified language.",
+      "funcName": "Translate",
+      "paramTypes": [
+        {
+          "name": "lang",
+          "type": "string",
+          "ref": false,
+          "description": "The target language code."
+        },
+        {
+          "name": "key",
+          "type": "string",
+          "ref": false,
+          "description": "The translation key."
+        }
+      ],
+      "retType": {
+        "type": "string",
+        "description": "The translated string, or an empty string if not found."
+      }
+    },
+    {
+      "name": "TranslateFormat",
+      "group": "Translations",
+      "description": "Translates a key into the specified language and formats it with the given arguments.",
+      "funcName": "TranslateFormat",
+      "paramTypes": [
+        {
+          "name": "lang",
+          "type": "string",
+          "ref": false,
+          "description": "The target language code."
+        },
+        {
+          "name": "key",
+          "type": "string",
+          "ref": false,
+          "description": "The translation key."
+        },
+        {
+          "name": "args",
+          "type": "any[]",
+          "ref": false,
+          "description": "Format arguments to substitute into the translated string."
+        }
+      ],
+      "retType": {
+        "type": "string",
+        "description": "The formatted translated string, or an empty string if not found."
+      }
+    }
   ]
 }

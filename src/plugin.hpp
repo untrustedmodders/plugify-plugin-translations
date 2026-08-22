@@ -1,12 +1,9 @@
 #pragma once
 
-#include <span>
-#include <filesystem>
-#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
-#include <expected>
 #include <plg/format.hpp>
+#include <plg/hash.hpp>
 #include <plg/any.hpp>
 #include <plg/plugin.hpp>
 
@@ -14,19 +11,19 @@ namespace ptf {
 	class TranslationsPlugin final : public plg::Plugin {
 	public:
 		// IPluginEntry interface
-		plg::PluginResult OnPluginStart() final;
-		plg::PluginResult OnPluginEnd() final;
+		plg::PluginResult OnPluginStart() override;
+		plg::PluginResult OnPluginEnd() override;
 
-		void LoadTranslation(std::string_view path);
-		bool HasTranslation(std::string_view key);
-		bool HasTranslatedForLanguage(std::string_view key, std::string_view lang);
+		plg::string LoadTranslation(const plg::vector<plg::string>& path);
+		bool HasTranslation(const plg::string& key);
+		bool HasTranslatedForLanguage(const plg::string& key, const plg::string& lang);
 		void ReloadTransalations();
 
-		std::string Translate(std::string_view lang, std::string_view key) const;
-		std::string Translate(std::string_view lang, std::string_view key, std::span<const plg::any> args) const;
+		plg::string Translate(const plg::string& lang, const plg::string& key) const;
+		plg::string Translate(const plg::string& lang, const plg::string& key, const plg::vector<plg::any>& args) const;
 
 	private:
-		std::unordered_map<std::string, std::unordered_map<std::string, std::string, plg::string_hash, std::equal_to<>>, plg::string_hash, std::equal_to<>> _translations;
-		std::unordered_set<std::string, plg::string_hash, std::equal_to<>> _configs;
+		std::unordered_map<plg::string, std::unordered_map<plg::string, plg::string, plg::string_hash, std::equal_to<>>, plg::string_hash, std::equal_to<>> _translations;
+		std::unordered_set<plg::vector<plg::string>> _configs;
 	};
 }// namespace ptf
