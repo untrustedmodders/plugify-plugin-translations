@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/untrustedmodders/plugify-plugin-translations/compare/v1.0.1...v1.0.2) (2026-08-22)
+
+
+### Bug Fixes
+
+* win build ([a6713a6](https://github.com/untrustedmodders/plugify-plugin-translations/commit/a6713a6c9b78dbf62e7b2e64a84fcaa1a93bbb97))
+
 ## [1.0.1](https://github.com/untrustedmodders/plugify-plugin-translations/compare/v1.0.0...v1.0.1) (2026-08-22)
 
 
