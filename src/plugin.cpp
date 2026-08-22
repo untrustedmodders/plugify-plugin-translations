@@ -7,7 +7,7 @@
 #define PLG_FMT_PAREN
 #include <plg/formatter.hpp>
 
-#include <plugify_export.h>
+#include <plugin_export.h>
 
 namespace ptf {
 	plg::PluginResult TranslationsPlugin::OnPluginStart() {
