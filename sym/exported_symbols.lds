@@ -2,3 +2,10 @@ _Plugify_PluginStart
 _Plugify_PluginUpdate
 _Plugify_PluginEnd
 _Plugify_PluginContext
+
+_LoadTranslation
+_ReloadTransalations
+_HasTranslation
+_HasTranslatedForLanguage
+_Translate
+_TranslateFormat
