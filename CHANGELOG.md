@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.3](https://github.com/untrustedmodders/plugify-plugin-translations/compare/v1.0.2...v1.0.3) (2026-08-24)
+
+
+### Bug Fixes
+
+* add configs export ([2618d5e](https://github.com/untrustedmodders/plugify-plugin-translations/commit/2618d5e9e1dcfc0d149ae582e2b86624484fa3e2))
+* add symbols ([2fdff7b](https://github.com/untrustedmodders/plugify-plugin-translations/commit/2fdff7b0c9b1866d67098ea3c34c06e6eab81ec5))
+
 ## [1.0.2](https://github.com/untrustedmodders/plugify-plugin-translations/compare/v1.0.1...v1.0.2) (2026-08-22)
 
 
