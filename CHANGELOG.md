@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/untrustedmodders/plugify-plugin-translations/compare/v1.0.3...v1.1.0) (2026-11-26)
+
+
+### Features
+
+* add default language fallback and return the key for missing translations ([3a6803f](https://github.com/untrustedmodders/plugify-plugin-translations/commit/3a6803ffb1f316948633db85abfe1cc72fc3e3e1))
+
 ## [1.0.3](https://github.com/untrustedmodders/plugify-plugin-translations/compare/v1.0.2...v1.0.3) (2026-08-24)
 
 
