@@ -4,6 +4,7 @@
 
         LoadTranslation;
         ReloadTransalations;
+        SetDefaultLanguage;
         HasTranslation;
         HasTranslatedForLanguage;
         Translate;

@@ -45,6 +45,23 @@
       }
     },
     {
+      "name": "SetDefaultLanguage",
+      "group": "Translations",
+      "description": "Sets the language used when a key has no value for the requested language.",
+      "funcName": "SetDefaultLanguage",
+      "paramTypes": [
+        {
+          "name": "lang",
+          "type": "string",
+          "ref": false,
+          "description": "The default language code. An empty string disables the fallback."
+        }
+      ],
+      "retType": {
+        "type": "void"
+      }
+    },
+    {
       "name": "HasTranslation",
       "group": "Translations",
       "description": "Checks whether a translation key exists for any language.",
@@ -107,7 +124,7 @@
       ],
       "retType": {
         "type": "string",
-        "description": "The translated string, or an empty string if not found."
+        "description": "The translated string. Falls back to the default language when the language has no value; the key itself if neither is found."
       }
     },
     {
@@ -137,7 +154,7 @@
       ],
       "retType": {
         "type": "string",
-        "description": "The formatted translated string, or an empty string if not found."
+        "description": "The formatted translated string. Falls back to the default language when the language has no value; the key itself if neither is found."
       }
     }
   ]

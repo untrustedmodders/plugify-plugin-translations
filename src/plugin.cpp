@@ -17,6 +17,7 @@ namespace ptf {
 	plg::PluginResult TranslationsPlugin::OnPluginEnd() {
 		_translations.clear();
 		_configs.clear();
+		_defaultLanguage.clear();
 		return {};
 	}
 
@@ -69,26 +70,37 @@ namespace ptf {
 		}
 	}
 
-	plg::string TranslationsPlugin::Translate(const plg::string& lang, const plg::string& key) const {
+	void TranslationsPlugin::SetDefaultLanguage(const plg::string& lang) {
+		_defaultLanguage = lang;
+	}
+
+	const plg::string* TranslationsPlugin::Find(const plg::string& lang, const plg::string& key) const {
 		auto it = _translations.find(key);
 		if (it == _translations.end())
-			return "";
+			return nullptr;
 
 		auto it2 = it->second.find(lang);
-		if (it2 == it->second.end())
-			return "";
+		if (it2 == it->second.end() && !_defaultLanguage.empty())
+			it2 = it->second.find(_defaultLanguage);
 
-		return it2->second;
+		if (it2 == it->second.end())
+			return nullptr;
+
+		return &it2->second;
+	}
+
+	plg::string TranslationsPlugin::Translate(const plg::string& lang, const plg::string& key) const {
+		const plg::string* text = Find(lang, key);
+		if (text == nullptr)
+			return key;
+
+		return *text;
 	}
 
 	plg::string TranslationsPlugin::Translate(const plg::string& lang, const plg::string& key, const plg::vector<plg::any>& args) const {
-		auto it1 = _translations.find(key);
-		if (it1 == _translations.end())
-			return "";
-
-		auto it2 = it1->second.find(lang);
-		if (it2 == it1->second.end())
-			return "";
+		const plg::string* text = Find(lang, key);
+		if (text == nullptr)
+			return key;
 
 		try
 		{
@@ -99,7 +111,7 @@ namespace ptf {
 			}
 
 			auto out = fmt::memory_buffer();
-			fmt::vformat_to(std::back_inserter(out), std::string_view(it2->second), store);
+			fmt::vformat_to(std::back_inserter(out), std::string_view(*text), store);
 			return { out.data(), out.size() };
 		}
 		catch (const fmt::format_error& e) {
@@ -120,6 +132,10 @@ extern "C" {
 
 	PLUGIN_API void ReloadTransalations() {
 		ptf::plugin.ReloadTransalations();
+	}
+
+	PLUGIN_API void SetDefaultLanguage(const plg::string& lang) {
+		ptf::plugin.SetDefaultLanguage(lang);
 	}
 
 	PLUGIN_API bool HasTranslation(const plg::string& key) {

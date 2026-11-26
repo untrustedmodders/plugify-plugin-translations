@@ -5,6 +5,7 @@ _Plugify_PluginContext
 
 _LoadTranslation
 _ReloadTransalations
+_SetDefaultLanguage
 _HasTranslation
 _HasTranslatedForLanguage
 _Translate
